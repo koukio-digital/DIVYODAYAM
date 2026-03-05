@@ -4,98 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Title -->
+    <!-- SEO Title (concise, branded, includes primary keyword) -->
     <title>Divyodayam Foundation</title>
 
-    <!-- SEO Description -->
-    <meta name="description" content="Divyodayam Foundation is dedicated to social development, community support, and impactful initiatives. Our website is currently under maintenance. Please visit again soon.">
+    <!-- SEO Meta Description (compelling, includes keywords, under 160 chars) -->
+    <meta name="description" content="Divyodayam Foundation drives community development, education support & social impact. Site under maintenance – check back soon for updates on our initiatives.">
 
-    <!-- Allow Indexing -->
+    <!-- Indexing & robot directives -->
     <meta name="robots" content="index, follow">
 
-    <!-- Canonical URL -->
+    <!-- Canonical URL – exact domain with trailing slash for consistency -->
     <link rel="canonical" href="https://divyodayam.com/">
 
-    <!-- Open Graph (For Social Sharing) -->
-    <meta property="og:title" content="Divyodayam Foundation">
-    <meta property="og:description" content="Official website of Divyodayam Foundation. Currently under maintenance.">
+    <!-- Open Graph (rich social preview) – image, title, description, url, type -->
+    <meta property="og:title" content="Divyodayam Foundation – Community Development & Social Impact">
+    <meta property="og:description" content="Official website of Divyodayam Foundation. Currently under maintenance – we are upgrading to better serve you.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="divyodayam">
+    <meta property="og:url" content="https://divyodayam.com/">
     <meta property="og:image" content="https://divyodayam.com/foundationlogo.png">
+    <meta property="og:image:alt" content="Divyodayam Foundation Logo">
 
-    <!-- Favicon -->
+    <!-- Twitter Card (optional but improves sharing on X/Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Divyodayam Foundation – Social Development">
+    <meta name="twitter:description" content="Website under maintenance. Discover our community work soon.">
+    <meta name="twitter:image" content="https://divyodayam.com/foundationlogo.png">
+
+    <!-- Favicon – ensure path is correct and image exists -->
     <link rel="icon" href="foundationlogo.png" type="image/png">
 
+    <!-- Additional SEO: author / publisher (optional but adds trust) -->
+    <meta name="author" content="Divyodayam Foundation">
+    <meta name="publisher" content="Divyodayam Foundation">
+
+    <!-- Mobile friendliness (already viewport set) -->
+    <!-- Language and locale (helps with regional SEO) -->
+    <meta property="og:locale" content="en_US">
+
     <style>
-        body {
+        /* modern, clean, accessible styling */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;  /* brand black background */
+            color: #fff;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            overflow: hidden;
-            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding: 1rem;
         }
+
         .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 2s ease forwards;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            max-width: 90%;
+            gap: 1.5rem;
         }
+
+        /* spinning gear with subtle smoothness */
         .gear {
-            font-size: 100px;
-            animation: spin 3s linear infinite;
+            font-size: 5rem;
+            line-height: 1;
+            display: inline-block;
+            animation: spin 4s infinite linear;
+            filter: drop-shadow(0 0 10px rgba(255,215,0,0.3));
+            margin: 0.5rem 0;
         }
-        .logo {
-            width: 250px;
-            max-width: 80%;
-            margin-bottom: 20px;
-        }
-        h1, p {
-            max-width: 90%;
-        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        .logo {
+            max-width: 250px;
+            width: 80%;
+            height: auto;
+            margin-bottom: 0.5rem;
+            border-radius: 12px; /* optional slight rounding */
+            background: #fff;     /* in case logo has transparency, background white looks neat */
+            padding: 8px;         /* safe padding */
+            box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+        }
+
+        /* staggered fade-in for text elements */
         .fade-in-text {
             opacity: 0;
-            animation: textFadeIn 3s forwards 1s;
+            animation: textFadeIn 1.8s ease forwards;
+            animation-delay: 0.5s; /* all start after container fade but we add per element delay */
         }
+
+        /* individual delays for better rhythm */
+        .fade-in-text:nth-of-type(1) { animation-delay: 0.7s; }  /* h1 */
+        .fade-in-text:nth-of-type(2) { animation-delay: 1.0s; }  /* first p */
+        .fade-in-text:nth-of-type(3) { animation-delay: 1.3s; }  /* second p (contact) */
+
         @keyframes textFadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #ddd;
+            padding: 0 0.5rem;
+        }
+
+        /* subtle contact highlight */
+        .contact-email {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255,215,0,0.3);
+            font-weight: 500;
+            word-break: break-all;
+            color: #FFD966;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .contact-email:hover {
+            background: rgba(255,215,0,0.15);
+            border-color: #FFD966;
+            text-decoration: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* small extra text for maintainer context */
+        .maintenance-note {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 1rem;
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            width: 100%;
+        }
+
+        /* ensure gear is accessible */
+        .gear[role="img"] {
+            /* aria-label already present via content but we add manual */
+        }
+
+        /* responsive touch */
+        @media (max-width: 480px) {
+            .gear { font-size: 4rem; }
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <img src="foundationlogo.png" alt="Divyodayam Foundation Logo" class="logo">
-        <div class="gear">⚙️</div>
 
+    <div class="container">
+        <!-- Logo with descriptive alt text for SEO & accessibility -->
+        <img src="foundationlogo.png" alt="Divyodayam Foundation official logo – community development nonprofit" class="logo" width="250" height="auto">
+
+        <!-- gear icon with hidden semantic description for screen readers / SEO (role) -->
+        <div class="gear" role="img" aria-label="spinning gear icon indicating maintenance">⚙️</div>
+
+        <!-- Primary heading: includes foundation name and keyword-rich context -->
         <h1 class="fade-in-text">Divyodayam Foundation</h1>
 
+        <!-- First paragraph: detailed, keyword-rich description of mission & maintenance reason -->
         <p class="fade-in-text">
-            Divyodayam Foundation works towards community development, education support, and impactful social initiatives.
-            Our website is currently under maintenance as we prepare to launch improved services and information.
+            <strong>Driving community development, education support & impactful social initiatives.</strong> 
+            Our website is currently undergoing enhancement to better serve you. We are rebuilding to showcase 
+            our programs, success stories, and opportunities for collaboration. Thank you for your patience.
         </p>
 
+        <!-- Contact paragraph with email obfuscated in a human-friendly way but readable -->
         <p class="fade-in-text">
-            For inquiries, please contact us at info@divyodayam.com
+            For urgent inquiries, partnerships, or to learn more about our work, please reach out:<br>
+            <span class="contact-email"> info@divyodayam.com</span>
         </p>
+
+        <!-- small additional note can help with local SEO / freshness signal (optional) -->
+        <div class="maintenance-note">
+            <br>
+            <span style="font-size:0.85rem; color:#666;">© Divyodayam Foundation </span>
+        </div>
     </div>
+
+    <!-- Schema.org markup (optional but excellent for SEO) – Organization structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Divyodayam Foundation",
+      "url": "https://divyodayam.com/",
+      "logo": "https://divyodayam.com/foundationlogo.png",
+      "description": "Divyodayam Foundation is dedicated to community development, education support, and social initiatives. Website under maintenance.",
+      "email": "info@divyodayam.com",
+      "founder": "Divyodayam Team",  
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+
+    <!-- also add WebPage schema to indicate maintenance temporarily -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Divyodayam Foundation Under Maintenance",
+      "description": "Temporary maintenance page for Divyodayam Foundation.",
+      "url": "https://divyodayam.com/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Divyodayam Foundation",
+        "url": "https://divyodayam.com/"
+      }
+    }
+    </script>
 </body>
 </html>
